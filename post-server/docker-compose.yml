@@ -1,0 +1,21 @@
+version: '3'
+services:
+  server:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URL=${MONGO_URL}
+      - AUTH0_AUDIENCE=${AUTH0_AUDIENCE}
+      - AUTH0_DOMAIN=${AUTH0_DOMAIN}
+
+  mongo:
+    image: mongo:latest
+    container_name: "mongodb"
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/logs/mongo
+    volumes:
+      - ../data/post:/data/db
+      - ../logs/post/mongo:/logs/mongo
+    command: mongod --smallfiles --logpath=/dev/null --quiet

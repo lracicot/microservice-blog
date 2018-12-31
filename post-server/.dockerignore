@@ -1,0 +1,7 @@
+node_modules
+npm-debug.log
+test
+data
+.env*
+.git*
+.eslint*

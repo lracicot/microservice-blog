@@ -1,0 +1,6 @@
+{
+  "presets": [
+    ["env", {"targets": { "node": "10" }}]
+  ],
+  "plugins": ["transform-object-rest-spread"]
+}
